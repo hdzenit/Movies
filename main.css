@@ -1,0 +1,29 @@
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    
+}
+
+h1{
+    color: rgb(243, 242, 240);
+}
+h3{
+    padding-top: 10px;
+    color: white;
+}
+
+.text{
+    padding-top: 15%;
+    color: white;
+}
+.hollywood {
+    height: 30vh;
+}
+
+.comedies {
+    height: 30vh;
+}
