@@ -4,28 +4,7 @@
 }
 
 body {
-    height: 100vh;
-    
-}
-
-h1{
-    color: rgb(243, 242, 240);
-}
-h3{
-    padding-top: 10px;
-    color: white;
-}
-
-.text{
-    padding-top: 15%;
-    color: white;
-}
-.hollywood {
-    height: 30vh;
-}
-
-.comedies {
-    height: 30vh;
+ display: block;
 }
 
 button {
@@ -37,8 +16,9 @@ button {
    border: none;
 }
 
-
 .container .action-buttons{
+    display: inline;
+    width: 100vw;
     position: absolute;
     left: 0%;
     z-index: 100;
@@ -52,7 +32,7 @@ button {
 }
 
 .container .action-buttons .right-button {
-    
+    margin-left: 95%;
     color: aliceblue;    
     
 }
