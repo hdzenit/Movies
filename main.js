@@ -11,7 +11,7 @@ fetch('main.json')
 .then(data => {
   dataObject = data;
   
-
+console.log(data);
 
 
 })
