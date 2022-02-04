@@ -1,25 +1,26 @@
-let dataObject;
-let firstPage = document.querySelector('#first-page');
-let secondPage = document.querySelector('#second-page');
-let views = document.querySelectorAll('.view');
-let id;
-let hollywood = document.querySelector('hollywood');
+let jsondata = "";
+let apiUrl = "main.json";
+
+async function getJson(url) {
+    let response = await fetch(url);
+    let data = await response.json()
+    return data;
+}
 
 
-fetch('main.json')
-.then( data => data.json())
-.then(data => {
-  dataObject = data;
-  
-console.log(data);
+async function main() {
+    //OPTION 1
+    getJson(apiUrl)
+        .then(data => console.log(data));
 
+    //OPTION 2
+    jsondata = await getJson(apiUrl)
+    console.log(jsondata);
+}
 
-})
+main();
 
-
-
-//document.body.style.backgroundImage = "url('https://occ-0-6146-2705.1.nflxso.net/dnm/api/v6/6AYY37jfdO6hpXcMjf9Yu5cnmO0/AAAABd6RGXWbIoOHL3daqY8inmYcduPOmeukBFfOpzMJA0yh0ogdbGvekRFLgP1eyZBDFO2Igi5gLPKlusDO9AnqbE_UCIcA.jpg?r=6a0%22')";
-
+console.log(jsondata);
 
 
 
