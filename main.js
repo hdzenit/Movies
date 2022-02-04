@@ -9,18 +9,36 @@ async function getJson(url) {
 
 
 async function main() {
-    //OPTION 1
-    getJson(apiUrl)
-        .then(data => console.log(data));
-
-    //OPTION 2
-    jsondata = await getJson(apiUrl)
+   jsondata = await getJson(apiUrl)
     console.log(jsondata);
-}
+
+};
 
 main();
 
-console.log(jsondata);
+
+window.addEventListener('DOMContentLoaded', function() {
+    displayMovieItems(jsondata);
+
+});
+
+
+let sectionMovies = document.querySelector('.section-movies');
+
+
+function displayMovieItems(movieItems){
+    let displayMovie = movieItems.map(function(item){
+        return `<img src="${item.background-image}" class="photo" alt="movie item">
+        <div class="item-info">
+            <header>
+                <h4>${item.name}</h4>
+                
+            </header>
+        </div></div>`
+    });
+displayMovie = displayMovie.join("");
+sectionMovies.innerHTML = displayMovie;
+};
 
 
 
