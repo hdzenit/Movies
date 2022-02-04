@@ -1,3 +1,4 @@
+let sectionMovies = document.querySelector('.section-movies');
 let jsondata = "";
 let apiUrl = "main.json";
 
@@ -10,7 +11,7 @@ async function getJson(url) {
 
 async function main() {
    jsondata = await getJson(apiUrl)
-    console.log(jsondata);
+   
 
 };
 
@@ -23,18 +24,20 @@ window.addEventListener('DOMContentLoaded', function() {
 });
 
 
-let sectionMovies = document.querySelector('.section-movies');
 
 
 function displayMovieItems(movieItems){
     let displayMovie = movieItems.map(function(item){
-        return `<img src="${item.background-image}" class="photo" alt="movie item">
+        return `<article class="section-movies">
+        <img src="${item.jsondata.background-image}" class="photo" alt="movie item">
         <div class="item-info">
             <header>
-                <h4>${item.name}</h4>
+                <h4>${item.json.name}</h4>
                 
             </header>
-        </div></div>`
+        </div>
+        </div>
+        </article>`
     });
 displayMovie = displayMovie.join("");
 sectionMovies.innerHTML = displayMovie;

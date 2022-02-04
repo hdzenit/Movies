@@ -25,8 +25,20 @@ button {
  }
 
  .movies {
-     width: 100%;
-     padding: 3%;
- }
+    width: 100%;
+    padding: 3%;
+}
 
+.section-movies {
+   
+    height: 20%;
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    grid-gap: 10px;
+    background-color: #2196F3;
+    padding: 10px;
+}
 
+h2 {
+    padding-top: 5%;
+}
