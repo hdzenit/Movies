@@ -28,29 +28,26 @@ button {
 }
 
 .section-movies {
-    background-color: greenyellow;
-    margin-left: 5px;
-    height: 20%;
-    display: flow-root;
-    grid-template-rows:auto auto auto auto;
-    row-gap: 2px;
-    padding: 0px;
-    float: left;
-}
+    display: grid;
+    grid-template-columns: auto auto auto auto auto auto;
+    margin-left: 10px;
+   }
 
 .photo {
-    margin-top: 20%;
+    margin-top: 5%;
     width: 250px;
     height: 150px;
+    
     }
 
-.section-movies > h5 {
+h5 {
+margin-left: 20px;
 padding-top: 0;
-color: red;
+
 }
 
 h6 {
     text-align: center;
-    margin-top: 25px;
+    margin-top: 10px;
     
 }
