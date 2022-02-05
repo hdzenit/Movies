@@ -9,7 +9,6 @@ font-family: "Ubuntu", sans-serif;
 display: flex;
 flex-direction: row;
 justify-content: flex-start;
-
 height: 100vh;
 width: 100vw;
 overflow: hidden;
@@ -17,7 +16,6 @@ overflow: hidden;
 }
 
 button {
-    
     background: none;
     color: red;
     cursor: pointer;
@@ -26,27 +24,33 @@ button {
 
  .movies {
     width: 100%;
-    padding: 3%;
+    
 }
 
 .section-movies {
-   
+    background-color: greenyellow;
+    margin-left: 5px;
     height: 20%;
-    display: grid;
-    grid-template-columns: auto auto auto auto;
-    grid-gap: 10px;
-    background-color: #2196F3;
-    padding: 10px;
+    display: flow-root;
+    grid-template-rows:auto auto auto auto;
+    row-gap: 2px;
+    padding: 0px;
+    float: left;
 }
 
 .photo {
-    width: 300px;
-    height: 200px;
-    
-    margin-bottom: 3%;
-    margin-left: 7%;
+    margin-top: 20%;
+    width: 250px;
+    height: 150px;
     }
 
-h2 {
-    padding-top: 5%;
+.section-movies > h5 {
+padding-top: 0;
+color: red;
+}
+
+h6 {
+    text-align: center;
+    margin-top: 25px;
+    
 }
