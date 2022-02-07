@@ -145,10 +145,12 @@ const movies = [
 
 
 let sectionMovies = document.querySelector('.section-movies');
+let film = document.querySelector('.movies');
+let moviePage = document.querySelector('.second-page');
 
 window.addEventListener('DOMContentLoaded', function() {
     displayMovieItems(movies);
-
+   
 });
 
 
@@ -166,13 +168,46 @@ function displayMovieItems(movieItems){
         </div>
         </div>
         </article>`
-    });
+   });
 displayMovie = displayMovie.join("");
 sectionMovies.innerHTML = displayMovie;
 };
 
 
 
+function moviesPage(movieItems){
+    let displayInfo = movieItems.map(function(item){
+        return `<div class="second-page">
+        <img src="${item.backgroundimage}" class="photo" alt="movie item">
+        <h1>${item.name}</h1>
+        <p>${item.year}</p>
+        <p>${item.duration}</p>
+        <p>${item.description}</p>
+        <p>${item.actors}</p>
+        <p>${item.trailer}</p>
+        <div class="buttons">
+        
+        </div>
+    </div>`
+    });
+    displayInfo = displayInfo.join("");
+    secondPage = document.innerHTML = displayInfo;
+   
+};
+
+//druga stranica
+
+let imageButton = document.querySelectorAll('.photo');
+
+
+imageButton.addEventListener('click', () => changePage('backgroundimage'))
+
+const changePage = (direction) => {
+    const movie = moviesPage();
+    if(direction === item.id){
+       moviesPage();
+    }
+}
 
 
 
