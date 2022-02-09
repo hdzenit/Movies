@@ -153,13 +153,25 @@ window.addEventListener('DOMContentLoaded', function() {
    
 });
 
-
-
-
-function displayMovieItems(movieItems){
-    let displayMovie = movieItems.map(function(item){
+function displayMovieItems(items){
+    let displayMovie = items.map(function(item){
         return `<article class="section-movies">
+        <div class="item-info">
+            <header>
+                 <img src="${item.backgroundimage}" class="photo" alt="movie item">
+                 <h6>${item.name}</h6>
+            </header>
+        </div>
+        </div>
+        </article>`
+   });
+displayMovie = displayMovie.join("");
+sectionMovies.innerHTML = displayMovie;
+};
 
+function displayMovieItems(items){
+    let displayMovie = items.map(function(item){
+        return `<article class="section-movies">
         <div class="item-info">
             <header>
                  <img src="${item.backgroundimage}" class="photo" alt="movie item">
@@ -175,8 +187,8 @@ sectionMovies.innerHTML = displayMovie;
 
 
 
-function moviesPage(movieItems){
-    let displayInfo = movieItems.map(function(item){
+function showItems(items){
+    let displayInfo = items.map(item => {
         return `<div class="second-page">
         <img src="${item.backgroundimage}" class="photo" alt="movie item">
         <h1>${item.name}</h1>
@@ -186,32 +198,24 @@ function moviesPage(movieItems){
         <p>${item.actors}</p>
         <p>${item.trailer}</p>
         <div class="buttons">
-        
-        </div>
+          </div>
     </div>`
-    });
-    displayInfo = displayInfo.join("");
-    secondPage = document.innerHTML = displayInfo;
-   
+   });
+   displayInfo = displayInfo.join("");
+sectionMovies.innerHTML = displayInfo;
 };
 
-//druga stranica
+
 
 let imageButton = document.querySelectorAll('.photo');
 
-
-imageButton.addEventListener('click', () => changePage('backgroundimage'))
-
-const changePage = (direction) => {
-    const movie = moviesPage();
-    if(direction === item.id){
-       moviesPage();
-    }
-}
-
-
-
-
+imageButton.addEventListener('click', function showId(id) {
+    document.getElementById(id).style.display = 'block';
+    // hide the lorem ipsum text
+    document.getElementById(text).style.display = 'none';
+    // hide the link
+    imageButton.style.display = 'none';
+});
 
 
 
