@@ -144,18 +144,24 @@ const movies = [
 
 
 
-let sectionMovies = document.querySelector('.section-movies');
-let film = document.querySelector('.movies');
-let moviePage = document.querySelector('.second-page');
+let sectionMovies1 = document.querySelector('.section-movies1');
+let sectionMovies2 = document.querySelector('.section-movies2');
+let imageButton = document.querySelector('.photo');
+let secondPage = document.querySelector('#second-page');
+let firstPage = document.querySelector('#first-page');
+let id;
+let currentItem = 0;
 
 window.addEventListener('DOMContentLoaded', function() {
-    displayMovieItems(movies);
-   
+    displayMovieItems1(movies);
+    displayMovieItems2(movies);
+    showItems(movies);
 });
 
-function displayMovieItems(items){
-    let displayMovie = items.map(function(item){
-        return `<article class="section-movies">
+function displayMovieItems1(items){
+    let hollywood = movies.filter(movie => movie.id < 7);
+    let movie1 = hollywood.map(function(item){
+          return `<article class="section-movies1">
         <div class="item-info">
             <header>
                  <img src="${item.backgroundimage}" class="photo" alt="movie item">
@@ -164,14 +170,17 @@ function displayMovieItems(items){
         </div>
         </div>
         </article>`
-   });
-displayMovie = displayMovie.join("");
-sectionMovies.innerHTML = displayMovie;
+});
+movie1 = movie1.join("");
+sectionMovies1.innerHTML = movie1;
+
+
 };
 
-function displayMovieItems(items){
-    let displayMovie = items.map(function(item){
-        return `<article class="section-movies">
+function displayMovieItems2(items){
+    let comedies = movies.filter(movie => movie.id > 6);
+    let movie2 = comedies.map(function(item){
+          return `<article class="section-movies2">
         <div class="item-info">
             <header>
                  <img src="${item.backgroundimage}" class="photo" alt="movie item">
@@ -180,15 +189,19 @@ function displayMovieItems(items){
         </div>
         </div>
         </article>`
-   });
-displayMovie = displayMovie.join("");
-sectionMovies.innerHTML = displayMovie;
+});
+movie2 = movie2.join("");
+
+sectionMovies2.innerHTML = movie2;
+
 };
+
+
 
 
 
 function showItems(items){
-    let displayInfo = items.map(item => {
+    let displayInfo = movies.map(function(item) {
         return `<div class="second-page">
         <img src="${item.backgroundimage}" class="photo" alt="movie item">
         <h1>${item.name}</h1>
@@ -197,25 +210,33 @@ function showItems(items){
         <p>${item.description}</p>
         <p>${item.actors}</p>
         <p>${item.trailer}</p>
-        <div class="buttons">
-          </div>
     </div>`
-   });
+    });
    displayInfo = displayInfo.join("");
-sectionMovies.innerHTML = displayInfo;
+
 };
 
+imageButton.addEventListener('click', showItems);
 
 
-let imageButton = document.querySelectorAll('.photo');
+for (let i = 0; i < imageButton.length; i++) {
+    imageButton[i].addEventListener('click', showItems);
+}
+    
+    function showItems(e){
+        for (let i = 0; i < movies.length; i++) {
+            movies[i].style.display = "none";
+            
+        }
+        if(e instanceof Event){
+            e.preventDefault();
+            let id = `#${this.getAttribute("article")}`;
+            document.querySelector(id).style.display = "block";
+        }else{
+            document.querySelector(e).style.display = "block";
+        }
+    }
 
-imageButton.addEventListener('click', function showId(id) {
-    document.getElementById(id).style.display = 'block';
-    // hide the lorem ipsum text
-    document.getElementById(text).style.display = 'none';
-    // hide the link
-    imageButton.style.display = 'none';
-});
 
 
 

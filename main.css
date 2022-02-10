@@ -1,18 +1,17 @@
+
+
 @import url('https://fonts.googleapis.com/css?family=Ubuntu');
 
 * {
     box-sizing: border-box;
-  
 }
 
 body {
 font-family: "Ubuntu", sans-serif;
+
 display: flex;
 flex-direction: row;
 justify-content: flex-start;
-height: 100vh;
-width: 100vw;
-overflow: hidden;
 
 }
 
@@ -28,16 +27,25 @@ button {
     
 }
 
-.section-movies {
-    display: grid;
-    grid-template-columns: auto auto auto auto auto auto;
-    margin-left: 10px;
+.section-movies1 {
+    width: 95vw;
+    height: 40vh;
+    display: flex;
+    margin-left: 5px;
+   }
+
+.section-movies2 {
+    width: 95vw;
+    height: 40vh;
+    display: flex;
+    margin-left: 5px;
    }
 
 .photo {
-    margin-top: 5%;
-    width: 250px;
+    margin-top: 3%;
+    width: 200px;
     height: 150px;
+    cursor: pointer;
     
     }
 
@@ -51,6 +59,10 @@ h6 {
     text-align: center;
     margin-top: 10px;
     
+}
+
+.title {
+    margin-left: 15px;
 }
 
 .button-container {
