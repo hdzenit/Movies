@@ -146,16 +146,17 @@ const movies = [
 
 let sectionMovies1 = document.querySelector('.section-movies1');
 let sectionMovies2 = document.querySelector('.section-movies2');
-let imageButton = document.querySelector('.photo');
-let secondPage = document.querySelector('#second-page');
+let imageButton = document.querySelectorAll('.photo');
+let secondPage = document.querySelector('.second-page');
 let firstPage = document.querySelector('#first-page');
 let id;
-let currentItem = 0;
+let currentItem;
+let x;
 
 window.addEventListener('DOMContentLoaded', function() {
     displayMovieItems1(movies);
     displayMovieItems2(movies);
-    showItems(movies);
+   
 });
 
 function displayMovieItems1(items){
@@ -195,47 +196,30 @@ movie2 = movie2.join("");
 sectionMovies2.innerHTML = movie2;
 
 };
-
-
-
-
-
-function showItems(items){
-    let displayInfo = movies.map(function(item) {
-        return `<div class="second-page">
-        <img src="${item.backgroundimage}" class="photo" alt="movie item">
-        <h1>${item.name}</h1>
-        <p>${item.year}</p>
-        <p>${item.duration}</p>
-        <p>${item.description}</p>
-        <p>${item.actors}</p>
-        <p>${item.trailer}</p>
-    </div>`
+function movieId(items){
+imageButton.forEach(element => 
+    imageButton.addEventListener('click', function(e){
+         id = e.currentTarget.id;
+        
     });
-   displayInfo = displayInfo.join("");
-
+        
+           let displayInfo = movies.map(function(item) {
+            return `<div class="second-page">
+            <img src="${item.backgroundimage}" class="photo" alt="movie item">
+            <h1>${item.name}</h1>
+            <p>${item.year}</p>
+            <p>${item.duration}</p>
+            <p>${item.description}</p>
+            <p>${item.actors}</p>
+            <p>${item.trailer}</p>
+        </div>`
+         });
+      
+        secondPage.innerHTML = displayInfo;
+        
 };
 
-imageButton.addEventListener('click', showItems);
 
-
-for (let i = 0; i < imageButton.length; i++) {
-    imageButton[i].addEventListener('click', showItems);
-}
-    
-    function showItems(e){
-        for (let i = 0; i < movies.length; i++) {
-            movies[i].style.display = "none";
-            
-        }
-        if(e instanceof Event){
-            e.preventDefault();
-            let id = `#${this.getAttribute("article")}`;
-            document.querySelector(id).style.display = "block";
-        }else{
-            document.querySelector(e).style.display = "block";
-        }
-    }
 
 
 
