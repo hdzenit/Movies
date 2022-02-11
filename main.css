@@ -48,6 +48,10 @@ button {
     cursor: pointer;
     
     }
+.photo:hover {
+    width: 220px;
+    height: 160px;
+}
 
 h5 {
 margin-left: 20px;

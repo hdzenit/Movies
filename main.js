@@ -146,17 +146,17 @@ const movies = [
 
 let sectionMovies1 = document.querySelector('.section-movies1');
 let sectionMovies2 = document.querySelector('.section-movies2');
-let imageButton = document.querySelectorAll('.photo');
+let movie;
 let secondPage = document.querySelector('.second-page');
 let firstPage = document.querySelector('#first-page');
-let id;
+
 let currentItem;
-let x;
+
 
 window.addEventListener('DOMContentLoaded', function() {
     displayMovieItems1(movies);
     displayMovieItems2(movies);
-   
+    
 });
 
 function displayMovieItems1(items){
@@ -172,10 +172,8 @@ function displayMovieItems1(items){
         </div>
         </article>`
 });
-movie1 = movie1.join("");
+
 sectionMovies1.innerHTML = movie1;
-
-
 };
 
 function displayMovieItems2(items){
@@ -194,36 +192,43 @@ function displayMovieItems2(items){
 movie2 = movie2.join("");
 
 sectionMovies2.innerHTML = movie2;
-
 };
-function movieId(items){
-imageButton.forEach(element => 
-    imageButton.addEventListener('click', function(e){
-         id = e.currentTarget.id;
-        
-    });
-        
-           let displayInfo = movies.map(function(item) {
-            return `<div class="second-page">
-            <img src="${item.backgroundimage}" class="photo" alt="movie item">
-            <h1>${item.name}</h1>
-            <p>${item.year}</p>
-            <p>${item.duration}</p>
-            <p>${item.description}</p>
-            <p>${item.actors}</p>
-            <p>${item.trailer}</p>
-        </div>`
-         });
+
+
       
-        secondPage.innerHTML = displayInfo;
+
         
-};
+        let imageButton = document.querySelectorAll('.photo');
+        
+    imageButton.forEach(function(btn){
+        btn.addEventListener('click', function(e){
+    const id = e.currentTarget.id;
+    const moviesId = movies.filter(function(moviesItem){
+        if(moviesItem.id = id){
+            currentItem = id
+        }
+    })
+    });  
+    });
+       movie = movies[currentItem - 1];
+console.log(movie);
 
-
-
-
-
-
+      
+        let displayInfo = movies.map(function(item) {
+         return `<div class="second-page">
+         <img src="${item.backgroundimage}" class="photo" alt="movie item">
+         <h1>${item.name}</h1>
+         <p>${item.year}</p>
+         <p>${item.duration}</p>
+         <p>${item.description}</p>
+         <p>${item.actors}</p>
+         <p>${item.trailer}</p>
+     </div>`
+      });
+   
+     secondPage.innerHTML = displayInfo;
+     //console.log(secondPage);
+    
 
 
 
