@@ -149,13 +149,14 @@ let sectionMovies2 = document.querySelector('.section-movies2');
 let movie;
 let secondPage = document.querySelector('.second-page');
 let firstPage = document.querySelector('#first-page');
-
+let imageButton = document.querySelectorAll('.photo'); 
 let currentItem;
 
 
 window.addEventListener('DOMContentLoaded', function() {
     displayMovieItems1(movies);
     displayMovieItems2(movies);
+    secondPages(movies);
     
 });
 
@@ -171,11 +172,10 @@ function displayMovieItems1(items){
         </div>
         </div>
         </article>`
-});
-
-sectionMovies1.innerHTML = movie1;
-};
-
+    });
+movie1 = movie1.join("");
+  sectionMovies1.innerHTML = movie1;
+}
 function displayMovieItems2(items){
     let comedies = movies.filter(movie => movie.id > 6);
     let movie2 = comedies.map(function(item){
@@ -188,48 +188,41 @@ function displayMovieItems2(items){
         </div>
         </div>
         </article>`
-});
-movie2 = movie2.join("");
-
-sectionMovies2.innerHTML = movie2;
-};
-
-
-      
-
         
-        let imageButton = document.querySelectorAll('.photo');
-        
-    imageButton.forEach(function(btn){
-        btn.addEventListener('click', function(e){
-    const id = e.currentTarget.id;
-    const moviesId = movies.filter(function(moviesItem){
-        if(moviesItem.id = id){
-            currentItem = id
-        }
-    })
-    });  
     });
-       movie = movies[currentItem - 1];
-console.log(movie);
+    
+ movie2 = movie2.join("");
+  sectionMovies2.innerHTML = movie2;
+}
 
-      
-        let displayInfo = movies.map(function(item) {
+function secondPages(items){
+    let imageButton = document.querySelectorAll('.photo'); 
+     
+    imageButton.forEach(function(btn){
+        btn.addEventListener('click', function(event){
+            let id = event.currentTarget.id;
+            movies.filter(function(movieItem){
+                if(movies.id = id){
+                  currentItem = id
+                }
+            });
+        });
+    });
+      movie = movies[currentItem - 1];
+    
+     let displayInfo = movies.map(function(item) {
          return `<div class="second-page">
          <img src="${item.backgroundimage}" class="photo" alt="movie item">
+         
          <h1>${item.name}</h1>
          <p>${item.year}</p>
          <p>${item.duration}</p>
          <p>${item.description}</p>
          <p>${item.actors}</p>
          <p>${item.trailer}</p>
-     </div>`
-      });
-   
-     secondPage.innerHTML = displayInfo;
-     //console.log(secondPage);
+         </div>`
+        });
+          secondPage.innerHTML = displayInfo;
+          //console.log(secondPage);
     
-
-
-
-
+};
