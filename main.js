@@ -156,7 +156,7 @@ let currentItem;
 window.addEventListener('DOMContentLoaded', function() {
     displayMovieItems1(movies);
     displayMovieItems2(movies);
-    secondPages(movies);
+   
     
 });
 
@@ -195,7 +195,7 @@ function displayMovieItems2(items){
   sectionMovies2.innerHTML = movie2;
 }
 
-function secondPages(items){
+function showMovie(items){
     let imageButton = document.querySelectorAll('.photo'); 
      
     imageButton.forEach(function(btn){
