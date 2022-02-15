@@ -143,19 +143,21 @@ const movies = [
 
 
 
-
+let firstPage = document.querySelector('.first-page');
+let secondPage = document.querySelector('.second-page');
 let sectionMovies1 = document.querySelector('.section-movies1');
 let sectionMovies2 = document.querySelector('.section-movies2');
 let movie;
-let secondPage = document.querySelector('.second-page');
-let firstPage = document.querySelector('#first-page');
-let imageButton; 
 let currentItem;
+
+
+let trailerButton = document.querySelector('#movie.id');
 
 
 window.addEventListener('DOMContentLoaded', function() {
     hollywoodMovie(movies);
     comediesMovie(movies);
+    displayMovieBtn();
    
 });
 
@@ -190,46 +192,48 @@ function comediesMovie(items){
         </div>
         </article>`
         
-    });
-    imageButton = document.querySelectorAll('.photo');
-    movie2 = movie2.join("");
-    sectionMovies2.innerHTML = movie2;
+ });
+movie2 = movie2.join("");
+sectionMovies2.innerHTML = movie2;
 }
-
-function getMovieContent(items){
   
-     
-    imageButton.forEach(function(btn){
-        btn.addEventListener('click', function(event){
-            let id = event.currentTarget.id;
-            movies.filter(function(movieItem){
-                if(movieItem.id = id){
-                  currentItem = id
-                }
-            });
-        });
-    });
-      movie = movies[currentItem - 1];
-    
-     let displayInfo = movies.map(function(movie) {
-         return `<div class="second-page">
-         <img src="${movie.backgroundimage}" class="photo" alt="movie item">
-         
-         <h1>${movie.name}</h1>
-         <p>${movie.year}</p>
-         <p>${movie.duration}</p>
-         <p>${movie.description}</p>
-         <p>${movie.actors}</p>
-         <p>${movie.trailer}</p>
-         </div>`
-        });
-          secondPage.innerHTML = displayInfo;
-          //console.log(secondPage);
-    
-};
 
-function nextPage(){
-    window.location.href = 'movie.html';
-    localStorage = "keno";
-    console.log("dzeno");
-}
+
+
+function displayMovieBtn(){
+
+let imageButton = document.querySelectorAll('.photo'); 
+    //filter items
+imageButton.forEach(function(btn){
+    btn.addEventListener('click', function(e){
+const category = e.currentTarget.id;
+const menuCategory = movies.filter(function(moviesItem){
+   // console.log(moviesItem.id);
+   if (moviesItem.id = id) {
+        currentItem = id
+    }
+});
+
+movie = movies[currentItem - 1];
+//console.log(menuCategory);
+let displayInfo = movies.map(function(movie) {
+    return `<div class="second-page">
+    <img src="${movie.backgroundimage}" class="background" id="${movie.id}" alt="movie-item">
+    <div class ="text">
+    <h1>${movie.name}</h1>
+    <p>${movie.year}</p>
+    <p>${movie.duration}</p>
+    <p>${movie.description}</p>
+    <p>${movie.actors}</p>
+    <p>${movie.trailer}</p>
+    <div class="btn-container">
+    <button class="filter-btn watch" type="button" id="${movie.id}">Watch trailer</button>
+    <button class="filter-btn add" type="button" id="${movie.id}">Add favorite</button>
+    </div>
+    </div>
+    </div>`
+   });
+   secondPage.innerHTML = displayInfo;
+});
+});
+};
