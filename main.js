@@ -217,13 +217,18 @@ movie = movies[currentItem - 1];
 console.log(movieCategory);
 
 });
+
+});
 let displayInfo = movies.map(function(movie) {
     return `<div class="second-page">
     <img src="${movie.backgroundimage}" class="background" id="${movie.id}" alt="movie-item">
     <div class ="text">
     <h1>${movie.name}</h1>
+    <div class="spec">
     <p>${movie.year}</p>
+    <p>+16</p>
     <p>${movie.duration}</p>
+    </div>
     <p>${movie.description}</p>
     <p>${movie.actors}</p>
     <p>${movie.trailer}</p>
@@ -235,7 +240,5 @@ let displayInfo = movies.map(function(movie) {
     </div>`
    });
    secondPage.innerHTML = displayInfo;
-});
-
 };
 

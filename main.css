@@ -14,6 +14,7 @@ justify-content: space-between;
 
 }
 
+
 button {
     background: none;
     color: red;
@@ -25,6 +26,14 @@ button {
      background-color: black;
  }
 
+ .navbar .heart{
+    float: right;
+    font-size: 19px;
+    margin-right: 25px;
+    z-index: 1;
+
+ }
+
 .movies {
     width: 100%;
     
@@ -32,27 +41,27 @@ button {
 
 .section-movies1 {
     width: 95vw;
-    height: 40vh;
+    height: 30vh;
     display: flex;
-    margin-left: 5px;
+    margin-left: 15px;
    }
 
 .section-movies2 {
     width: 95vw;
-    height: 40vh;
+    height: 30vh;
     display: flex;
-    margin-left: 5px;
+    margin-left: 15px;
    }
 
 .photo {
-    margin-top: 3%;
-    width: 200px;
+    margin-top: 2%;
+    width: 250px;
     height: 150px;
     cursor: pointer;
     
     }
 .photo:hover {
-    width: 220px;
+    width: 260px;
     height: 160px;
 }
 
@@ -80,7 +89,8 @@ h6 {
 }
 
 .second-page .background {
-    height: 80vh;
+    
+    height: 90vh;
     width: 100vw;
     opacity: 0.9;
     z-index: -100;
@@ -88,10 +98,10 @@ h6 {
 }
 
 .text {
-    margin-left: 3%;
+    margin-left: 15px;
     margin-right: 10%;
     margin-top: -35%;
-    width: 45%;
+    width: 35%;
     height: 50vh;
     position: absolute;
     z-index: 1;
@@ -115,3 +125,9 @@ h6 {
     border: solid rgb(177, 3, 3);
 }
 
+.second-page .spec {
+    height: 5%;
+    display: flex;
+    flex-direction: row;
+    
+}
