@@ -157,11 +157,11 @@ let trailerButton = document.querySelector('#movie.id');
 window.addEventListener('DOMContentLoaded', function() {
     hollywoodMovie(movies);
     comediesMovie(movies);
-    displayMovieBtn();
+    displayMovieBtn(movies);
    
 });
 
-function hollywoodMovie(items){
+function hollywoodMovie(){
     let hollywood = movies.filter(movie => movie.id < 7);
     let movie1 = hollywood.map(function(item){
           return `<article class="section-movies1">
@@ -174,12 +174,11 @@ function hollywoodMovie(items){
         </div>
         </article>`
     });
-    imageButton = document.querySelectorAll('.photo');
     movie1 = movie1.join("");
     sectionMovies1.innerHTML = movie1;
 }
 
-function comediesMovie(items){
+function comediesMovie(){
     let comedies = movies.filter(movie => movie.id > 6);
     let movie2 = comedies.map(function(item){
           return `<article class="section-movies2">
@@ -191,31 +190,33 @@ function comediesMovie(items){
         </div>
         </div>
         </article>`
-        
- });
-movie2 = movie2.join("");
-sectionMovies2.innerHTML = movie2;
+    });
+    movie2 = movie2.join("");
+    sectionMovies2.innerHTML = movie2;
 }
-  
 
+
+let imageButton = document.querySelectorAll('.photo');
 
 
 function displayMovieBtn(){
 
-let imageButton = document.querySelectorAll('.photo'); 
+
     //filter items
 imageButton.forEach(function(btn){
     btn.addEventListener('click', function(e){
-const category = e.currentTarget.id;
-const menuCategory = movies.filter(function(moviesItem){
-   // console.log(moviesItem.id);
+const id = e.currentTarget.id;
+const movieCategory = movies.filter(function(moviesItem){
+   console.log(moviesItem.id);
    if (moviesItem.id = id) {
-        currentItem = id
+        return currentItem = id
     }
 });
 
 movie = movies[currentItem - 1];
-//console.log(menuCategory);
+console.log(movieCategory);
+
+});
 let displayInfo = movies.map(function(movie) {
     return `<div class="second-page">
     <img src="${movie.backgroundimage}" class="background" id="${movie.id}" alt="movie-item">
@@ -235,5 +236,6 @@ let displayInfo = movies.map(function(movie) {
    });
    secondPage.innerHTML = displayInfo;
 });
-});
+
 };
+
