@@ -157,7 +157,7 @@ let trailerButton = document.querySelector('#movie.id');
 window.addEventListener('DOMContentLoaded', function() {
     hollywoodMovie(movies);
     comediesMovie(movies);
-    displayMovieBtn(movies);
+    
    
 });
 
@@ -196,32 +196,34 @@ function comediesMovie(){
 }
 
 
-let imageButton = document.querySelectorAll('.photo');
 
 
 function displayMovieBtn(){
 
 
+let imageButton = document.querySelectorAll('.photo');
     //filter items
 imageButton.forEach(function(btn){
     btn.addEventListener('click', function(e){
 const id = e.currentTarget.id;
-const movieCategory = movies.filter(function(moviesItem){
-   console.log(moviesItem.id);
-   if (moviesItem.id = id) {
-        return currentItem = id
+     movies.filter(function(moviesItem){
+ //  console.log(id);
+   if (moviesItem.id === id) {
+        currentItem === id;
     }
 });
-
+ // console.log(currentItem);
 movie = movies[currentItem - 1];
-console.log(movieCategory);
+    console.log(currentItem);
 
 });
 
 });
-let displayInfo = movies.map(function(movie) {
-    return `<div class="second-page">
-    <img src="${movie.backgroundimage}" class="background" id="${movie.id}" alt="movie-item">
+let displayInfo =
+    `<div class="second-page">
+    <div class="backgroundimage">
+    <img src="${movie.backgroundimage}" class="photo" id="${movie.id}" alt="movie item">
+    </div>
     <div class ="text">
     <h1>${movie.name}</h1>
     <div class="spec">
@@ -237,8 +239,10 @@ let displayInfo = movies.map(function(movie) {
     <button class="filter-btn add" type="button" id="${movie.id}">Add favorite</button>
     </div>
     </div>
-    </div>`
-   });
+    </div>`;
+   
    secondPage.innerHTML = displayInfo;
+
 };
 
+displayMovieBtn(movie.backgroundimage);
