@@ -200,44 +200,47 @@ function comediesMovie(){
 function displayMovieBtn(){
 
     let imageButton = document.querySelectorAll('.photo');
-    //filter items
- imageButton.forEach(function(btn){
-    btn.addEventListener('click', function(e){
- const id = e.currentTarget.id;
-    movies.filter(function(moviesItem){
-  // console.log(e.currentTarget.id);
-   if (moviesItem.id == id) {
-        currentItem = id
-    }
- });
- // console.log(currentItem);
- movie = movies[currentItem - 1];
-  //  console.log(movie);
+   //filter items
+imageButton.forEach(function(btn){
+   btn.addEventListener('click', function(e){
+const id = e.currentTarget.id;
+ // Number(id);
+   movies.filter(function(moviesItem){
+     
+  console.log(typeof(id));
+  if (moviesItem.id = id) {
+      currentItem = id
 
-    let displayInfo = movie.map(function(item){
-    return `<div class="second-page">
+   }
+});
+ console.log(currentItem);
+   movie = movies[currentItem - 1];
+   // console.log(movie);
+
+    let displayInfo = movies.map(function(){
+    `<div class="second-page">
     <div class="backgroundimage">
-    <img src="${item.backgroundimage}" class="background" id="${item.id}" alt="movie item">
+    <img src="${movies.backgroundimage}" class="background" id="${movies.id}" alt="movie item">
     </div>
     <div class ="text">
-    <h1>${item.name}</h1>
+    <h1>${movies.name}</h1>
     <div class="spec">
-    <p>${item.year}</p>
+    <p>${movies.year}</p>
     <p>+16</p>
-    <p>${item.duration}</p>
+    <p>${movies.duration}</p>
     </div>
-    <p>${item.description}</p>
-    <p>${item.actors}</p>
-    <p>${item.trailer}</p>
+    <p>${movies.description}</p>
+    <p>${movies.actors}</p>
+    <p>${movies.trailer}</p>
     <div class="btn-container">
-    <button class="filter-btn watch" type="button" id="${item.id}">Watch trailer</button>
-    <button class="filter-btn add" type="button" id="${item.id}">Add favorite</button>
-    </div>
+    <button class="filter-btn watch" type="button" id="${movies.id}">Watch trailer</button>
+    <button class="filter-btn add" type="button" id="${movies.id}">Add favorite</button>
     </div>
     </div>`
-    });
+});
+   displayInfo = displayInfo.join("");
    secondPage.innerHTML = displayInfo;
-   
+
 });
 });
 };
