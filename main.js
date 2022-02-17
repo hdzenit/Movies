@@ -204,17 +204,17 @@ function displayMovieBtn(){
 imageButton.forEach(function(btn){
    btn.addEventListener('click', function(e){
 const id = e.currentTarget.id;
- // Number(id);
-   movies.filter(function(moviesItem){
+  parseInt(e.currentTarget.id)
+ let moviesItemId = movies.filter(function(moviesItemId){
      
   console.log(typeof(id));
-  if (moviesItem.id = id) {
-      currentItem = id
 
+  if (moviesItemId.id = id) {
+      moviesItemId.id = id
    }
-});
- console.log(currentItem);
-   movie = movies[currentItem - 1];
+   });
+ console.log(moviesItemId.id);
+   movie = movies[moviesItemId - 1];
    // console.log(movie);
 
     let displayInfo = movies.map(function(){
@@ -240,7 +240,6 @@ const id = e.currentTarget.id;
 });
    displayInfo = displayInfo.join("");
    secondPage.innerHTML = displayInfo;
-
 });
 });
 };
